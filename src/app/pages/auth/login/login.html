@@ -1,0 +1,219 @@
+<div class="login-container">
+  <div class="container-fluid vh-100">
+    <div class="row h-100">
+      
+      <!-- Panel izquierdo - Información -->
+      <div class="col-lg-6 d-none d-lg-flex info-panel">
+        <div class="info-content">
+          <div class="brand-section">
+            <i class="fas fa-graduation-cap brand-icon"></i>
+            <h1 class="brand-title">iClass</h1>
+            <p class="brand-subtitle">Gestión Académica Integral</p>
+          </div>
+          
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Rendimiento Académico</h5>
+                <p>Reportes y estadísticas detalladas</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Control de Asistencia</h5>
+                <p>Seguimiento automatizado</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-bell"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Notificaciones</h5>
+                <p>Avisos automáticos a familias</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="feature-text">
+                <h5>Boletines Digitales</h5>
+                <p>Informes académicos instantáneos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel derecho - Formulario -->
+      <div class="col-lg-6 form-panel">
+        <div class="form-container">
+          
+          <!-- Header móvil -->
+          <div class="mobile-header d-lg-none">
+            <i class="fas fa-graduation-cap mobile-icon"></i>
+            <h2 class="mobile-title">iClass</h2>
+          </div>
+
+          <!-- Card del formulario -->
+          <div class="login-card">
+            <div class="card-header">
+              <h3 class="login-title">Iniciar Sesión</h3>
+              <p class="login-subtitle">Accede a tu plataforma educativa</p>
+            </div>
+
+            <!-- Alert de error -->
+            <div *ngIf="errorMessage" class="alert-error" [@slideInOut]>
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>{{ errorMessage }}</span>
+              <button type="button" class="alert-close" (click)="errorMessage = ''">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+
+            <!-- Formulario -->
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="login-form">
+              
+              <!-- Campo Email -->
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  <i class="fas fa-envelope label-icon"></i>
+                  Correo Electrónico
+                </label>
+                <div class="input-wrapper">
+                  <input 
+                    type="email" 
+                    id="email"
+                    formControlName="email"
+                    class="form-input"
+                    [class.input-error]="isFieldInvalid('email')"
+                    [class.input-success]="isFieldValid('email')"
+                    placeholder="tu-email@colegio.edu.co"
+                    autocomplete="email">
+                  <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div *ngIf="isFieldInvalid('email')" class="field-error" [@slideInOut]>
+                  <i class="fas fa-exclamation-circle"></i>
+                  <span *ngIf="loginForm.get('email')?.errors?.['required']">
+                    El correo electrónico es requerido
+                  </span>
+                  <span *ngIf="loginForm.get('email')?.errors?.['email']">
+                    Ingresa un correo electrónico válido
+                  </span>
+                </div>
+              </div>
+
+              <!-- Campo Contraseña -->
+              <div class="form-group">
+                <label for="password" class="form-label">
+                  <i class="fas fa-lock label-icon"></i>
+                  Contraseña
+                </label>
+                <div class="input-wrapper">
+                  <input 
+                    [type]="showPassword ? 'text' : 'password'" 
+                    id="password"
+                    formControlName="password"
+                    class="form-input"
+                    [class.input-error]="isFieldInvalid('password')"
+                    [class.input-success]="isFieldValid('password')"
+                    placeholder="Tu contraseña"
+                    autocomplete="current-password">
+                  <button 
+                    type="button" 
+                    class="password-toggle"
+                    (click)="togglePasswordVisibility()">
+                    <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                  </button>
+                </div>
+                <div *ngIf="isFieldInvalid('password')" class="field-error" [@slideInOut]>
+                  <i class="fas fa-exclamation-circle"></i>
+                  <span *ngIf="loginForm.get('password')?.errors?.['required']">
+                    La contraseña es requerida
+                  </span>
+                  <span *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    La contraseña debe tener mínimo 6 caracteres
+                  </span>
+                </div>
+              </div>
+
+              <!-- Recordar sesión y olvidar contraseña -->
+              <div class="form-options">
+                <label class="checkbox-container">
+                  <input 
+                    type="checkbox" 
+                    formControlName="rememberMe"
+                    class="checkbox-input">
+                  <span class="checkbox-mark"></span>
+                  <span class="checkbox-text">Recordar mi sesión</span>
+                </label>
+                <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+              </div>
+
+              <!-- Botón de envío -->
+              <button 
+                type="submit" 
+                class="submit-btn"
+                [disabled]="isLoading || loginForm.invalid"
+                [class.loading]="isLoading">
+                <span class="btn-content" [class.hidden]="isLoading">
+                  <i class="fas fa-sign-in-alt"></i>
+                  Iniciar Sesión
+                </span>
+                <span class="btn-loading" [class.visible]="isLoading">
+                  <div class="spinner"></div>
+                  Iniciando sesión...
+                </span>
+              </button>
+
+              <!-- Registro -->
+              <div class="register-section">
+                <p class="register-text">
+                  ¿No tienes cuenta? 
+                  <a routerLink="/register" class="register-link">Regístrate aquí</a>
+                </p>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Información de roles -->
+          <div class="roles-info">
+            <p class="roles-title">Roles Disponibles:</p>
+            <div class="roles-tags">
+              <span class="role-tag">Director</span>
+              <span class="role-tag">Docente</span>
+              <span class="role-tag">Estudiante</span>
+              <span class="role-tag">Padre de Familia</span>
+            </div>
+          </div>
+
+          <!-- Demo info (temporal) -->
+          <div class="demo-info" *ngIf="showDemoInfo">
+            <h6>Usuarios de Prueba:</h6>
+            <small>
+              • director@colegio.edu.co<br>
+              • docente@colegio.edu.co<br>
+              • estudiante@colegio.edu.co<br>
+              • padre@colegio.edu.co<br>
+              <strong>Contraseña: 123456</strong>
+            </small>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
