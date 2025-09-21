@@ -1,1 +1,27 @@
-<p>summary-cards works!</p>
+<div class="row g-3">
+  <div class="col-md-3" *ngIf="data">
+    <div class="card p-3">
+      <small>Total Estudiantes</small>
+      <h3>{{data.totalStudents}}</h3>
+    </div>
+  </div>
+  <div class="col-md-3" *ngIf="data">
+    <div class="card p-3">
+      <small>Profesores Activos</small>
+      <h3>{{data.totalTeachers}}</h3>
+    </div>
+  </div>
+  <div class="col-md-3" *ngIf="data">
+    <div class="card p-3">
+      <small>Cursos Disponibles</small>
+      <h3>{{data.totalCourses}}</h3>
+    </div>
+  </div>
+  <div class="col-md-3" *ngIf="data">
+    <div class="card p-3">
+      <small>Promedio General</small>
+      <h3>{{data.avgGrade}}</h3>
+    </div>
+  </div>
+</div>
+
