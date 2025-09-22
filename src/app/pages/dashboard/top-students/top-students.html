@@ -1,1 +1,11 @@
-<p>top-students works!</p>
+<div class="row g-2">
+  <div *ngFor="let s of top" class="col-md-4">
+    <div class="card text-center p-3">
+      <div class="badge bg-success rounded-circle mb-2">{{s.place}}</div>
+      <h6>{{s.name}}</h6>
+      <h3>{{s.grade}}</h3>
+      <small>{{s.place}}° Puesto</small>
+    </div>
+  </div>
+</div>
+

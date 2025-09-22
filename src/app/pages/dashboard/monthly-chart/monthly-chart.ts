@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgChartsModule } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration } from 'chart.js';
 import { DashboardService } from '@services/dashboard.service';
 
 @Component({
   selector: 'app-monthly-chart',
   standalone: true,
-  imports: [CommonModule, NgChartsModule],
+  imports: [CommonModule, BaseChartDirective],
   templateUrl: './monthly-chart.html',
   styleUrls: ['./monthly-chart.css']
 })
@@ -24,8 +24,8 @@ barChartData!: ChartConfiguration<'bar'>['data'];
   ngOnInit() {
     this.ds.getDashboard().subscribe(d => {
       this.barChartData = {
-        labels: d.monthly.months,
-        datasets: [
+        labels: d.monthly.months,         //son los nombres de cada columna en el eje X del gráfico. Ejemplo: ['Enero', 'Febrero', 'Marzo', 'Abril']
+        datasets: [                       //es un arreglo con los valores que se van a graficar. Ejemplo: [65, 59, 80, 81]
           { data: d.monthly.values, label: 'Rendimiento Mensual' }
         ]
       };

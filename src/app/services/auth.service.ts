@@ -377,4 +377,27 @@ export class AuthService {
     localStorage.removeItem('rememberMe');
     localStorage.removeItem('savedEmail');
   }
+
+  // Verifica si hay sesión activa
+isLogged(): boolean {
+  return this.isAuthenticated();
+}
+
+// Verifica roles específicos
+isAdmin(): boolean {
+  return this.hasRole(UserRole.DIRECTOR); // 👈 si tu rol ADMIN es "DIRECTOR"
+}
+
+isDocente(): boolean {
+  return this.hasRole(UserRole.DOCENTE);
+}
+
+isEstudiante(): boolean {
+  return this.hasRole(UserRole.ESTUDIANTE);
+}
+
+isPadre(): boolean {
+  return this.hasRole(UserRole.PADRE);
+}
+
 }

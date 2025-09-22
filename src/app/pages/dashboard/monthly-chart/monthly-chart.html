@@ -1,1 +1,9 @@
-<p>monthly-chart works!</p>
+<div *ngIf="barChartData">
+  <canvas
+    baseChart
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [type]="'bar'">
+  </canvas>
+</div>
+
