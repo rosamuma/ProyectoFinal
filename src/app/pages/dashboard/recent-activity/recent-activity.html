@@ -1,1 +1,15 @@
-<p>recent-activity works!</p>
+<div class="card p-3">
+  <h5>Actividad Reciente</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let r of data?.recent">
+      <div class="d-flex justify-content-between">
+        <div>
+          <div>{{r.title}}</div>
+          <small class="text-muted">{{r.subtitle}}</small>
+        </div>
+        <div><span class="badge bg-light text-dark">{{r.badge}}</span></div>
+      </div>
+    </li>
+  </ul>
+</div>
+

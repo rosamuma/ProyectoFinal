@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';      //Oninit  deja ejecutar lógica apenas se monta el componente.
-import { DashboardService } from '@services/dashborad.service';
+import { DashboardService } from '@services/dashboard.service';     //se importa el servicio que se creo para pedir los datos.
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-summary-cards',

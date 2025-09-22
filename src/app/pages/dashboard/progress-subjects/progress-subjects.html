@@ -1,1 +1,13 @@
-<p>progress-subjects works!</p>
+<div class="card p-3">
+  <h5>Progreso por Materia <small class="float-end"><a href="#">Ver todo</a></small></h5>
+  <div *ngFor="let p of data?.progress" class="my-3">
+    <div class="d-flex justify-content-between">
+      <div><strong>{{p.name}}</strong><div class="text-muted small">{{p.students}} estudiantes · {{p.completedModules}}/{{p.totalModules}} módulos</div></div>
+      <div>{{ ((p.completedModules/p.totalModules)*100) | number:'1.0-0' }}%</div>
+    </div>
+    <div class="progress mt-2">
+      <div class="progress-bar" role="progressbar" [style.width.%]="(p.completedModules/p.totalModules)*100"></div>
+    </div>
+  </div>
+</div>
+
