@@ -388,7 +388,7 @@ isLogged(): boolean {
 
 // Verifica roles específicos
 isAdmin(): boolean {
-  return this.hasRole(UserRole.DIRECTOR); // 👈 
+  return this.hasRole(UserRole.DIRECTOR); 
 }
 
 isDocente(): boolean {

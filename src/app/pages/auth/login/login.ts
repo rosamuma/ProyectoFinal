@@ -119,56 +119,28 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   private authenticateUser(email: string, password: string, rememberMe: boolean): void {
-    // Usuarios de demostración
-    const mockUsers: User[] = [
-      {
-        id: 1,
-        email: 'director@colegio.edu.co',
-        firstName: 'María',
-        lastName: 'González',
-        role: UserRole.DIRECTOR,
-        isActive: true,
-        createdAt: new Date()
-      },
-      {
-        id: 2,
-        email: 'docente@colegio.edu.co',
-        firstName: 'Carlos',
-        lastName: 'Rodríguez',
-        role: UserRole.DOCENTE,
-        isActive: true,
-        createdAt: new Date()
-      },
-      {
-        id: 3,
-        email: 'estudiante@colegio.edu.co',
-        firstName: 'Ana',
-        lastName: 'Martínez',
-        role: UserRole.ESTUDIANTE,
-        isActive: true,
-        createdAt: new Date()
-      },
-      {
-        id: 4,
-        email: 'padre@colegio.edu.co',
-        firstName: 'Luis',
-        lastName: 'Pérez',
-        role: UserRole.PADRE,
-        isActive: true,
-        createdAt: new Date()
-      }
-    ];
+  this.authService.login({ email, password }).subscribe({
+    next: user => {
+      console.log('LoginComponent recibió usuario:', user, 'rememberMe:', rememberMe);
 
-    // Buscar usuario
-    const user = mockUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
-    
-    // Validar credenciales
-    if (user && password === '123456') {
-      this.handleSuccessfulLogin(user, rememberMe);
-    } else {
-      this.handleLoginError();
+      if (rememberMe) {
+        localStorage.setItem('rememberedEmail', email);
+      } else {
+        localStorage.removeItem('rememberedEmail');
+      }
+
+      this.router.navigate(['/dashboard']);
+    },
+    error: err => {
+      console.error('Error en login:', err);
+      this.errorMessage = 'Credenciales inválidas o error de conexión';
+      this.isLoading = false;
+    },
+    complete: () => {
+      this.isLoading = false;
     }
-  }
+  });
+}
 
   private handleSuccessfulLogin(user: User, rememberMe: boolean): void {
     // Generar token simulado

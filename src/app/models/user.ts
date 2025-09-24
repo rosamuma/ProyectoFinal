@@ -15,10 +15,10 @@ export interface User {
 }
 
 export enum UserRole {
-  DIRECTOR = 'director',
-  DOCENTE = 'docente',
-  ESTUDIANTE = 'estudiante',
-  PADRE = 'padre'
+  DIRECTOR = 'DIRECTOR',
+  DOCENTE = 'DOCENTE',
+  ESTUDIANTE = 'ESTUDIANTE',
+  PADRE = 'PADRE'
 }
 
 export interface LoginRequest {
