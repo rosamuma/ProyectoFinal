@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router'; 
 import { Register } from './pages/auth/register/register';
 import { LoginComponent } from './pages/auth/login/login';
-import { Dashboard } from './pages/dashboard/dashboard';
 import { PublicLayout } from './layouts/public-layout/public-layout';
 import { PrivateLayout } from './layouts/private-layout/private-layout';
+import { DashboardShell } from './pages/dashboard/dashboard-shell/dashboard-shell';
 
 export const routes: Routes = [
     {
@@ -21,7 +21,7 @@ export const routes: Routes = [
     path: '',
     component: PrivateLayout,
     children: [
-      { path: 'dashboard', component: Dashboard }
+      { path: 'dashboard', component: DashboardShell },
     ]
   }
 ];

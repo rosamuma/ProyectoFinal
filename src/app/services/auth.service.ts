@@ -183,6 +183,7 @@ export class AuthService {
    */
   private handleLoginSuccess(response: LoginResponse): void {
     // Guardar en localStorage
+    console.log('Login success:', response.user); // 👈 verifica el usuario con rol
     localStorage.setItem(this.TOKEN_KEY, response.token);
     localStorage.setItem(this.USER_KEY, JSON.stringify(response.user));
     
@@ -194,6 +195,8 @@ export class AuthService {
       loading: false,
       error: null
     });
+
+    console.log('Nuevo authState:', this.authState.value); // 👈 aquí debería salir isAuthenticated true
   }
 
   /**
@@ -385,7 +388,7 @@ isLogged(): boolean {
 
 // Verifica roles específicos
 isAdmin(): boolean {
-  return this.hasRole(UserRole.DIRECTOR); // 👈 si tu rol ADMIN es "DIRECTOR"
+  return this.hasRole(UserRole.DIRECTOR); // 👈 
 }
 
 isDocente(): boolean {

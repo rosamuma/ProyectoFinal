@@ -17,4 +17,11 @@ import { AuthService } from '@services/auth.service';
 })
 export class DashboardShell {
  constructor(public auth: AuthService) {}
+
+ ngOnInit(): void {
+    console.log('¿Está logueado?', this.auth.isLogged());
+  console.log('¿Es director?', this.auth.isAdmin());
+  console.log('¿Es docente?', this.auth.isDocente());
+  console.log('¿Es estudiante?', this.auth.isEstudiante());
+  }
 }
