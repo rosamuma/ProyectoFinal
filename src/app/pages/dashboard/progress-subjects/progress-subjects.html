@@ -1,13 +1,17 @@
-<div class="card p-3">
-  <h5>Progreso por Materia <small class="float-end"><a href="#">Ver todo</a></small></h5>
-  <div *ngFor="let p of data?.progress" class="my-3">
-    <div class="d-flex justify-content-between">
-      <div><strong>{{p.name}}</strong><div class="text-muted small">{{p.students}} estudiantes · {{p.completedModules}}/{{p.totalModules}} módulos</div></div>
-      <div>{{ ((p.completedModules/p.totalModules)*100) | number:'1.0-0' }}%</div>
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title">Progreso por Materia</h5>
+    <p>Matemáticas</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 75%;">75%</div>
     </div>
-    <div class="progress mt-2">
-      <div class="progress-bar" role="progressbar" [style.width.%]="(p.completedModules/p.totalModules)*100"></div>
+    <p>Lenguaje</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-info" style="width: 60%;">60%</div>
+    </div>
+    <p>Ciencias</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-warning" style="width: 45%;">45%</div>
     </div>
   </div>
 </div>
-

@@ -1,0 +1,20 @@
+.sidebar {
+  background-color: #0d6efd;
+  min-height: 100vh;
+  width: 220px; /* ajusta aquí el ancho */
+}
+
+.sidebar .btn-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: rgb(210, 89, 89);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.sidebar .btn-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+

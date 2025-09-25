@@ -1,1 +1,25 @@
-<p>sidebar works!</p>
+<!-- Botón visible en móviles -->
+<button 
+  class="btn btn-light d-lg-none m-2" 
+  type="button" 
+  data-bs-toggle="offcanvas" 
+  data-bs-target="#sidebarMenu"
+  aria-controls="sidebarMenu"
+  aria-label="Abrir menú de navegación">
+  ☰ Menú
+</button>
+
+<!-- Sidebar -->
+<div class="offcanvas-lg offcanvas-start sidebar" tabindex="-1" id="sidebarMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menú</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="#" class="btn btn-link w-100 text-start mb-2" aria-label="Ir al Dashboard">Dashboard</a>
+    <a href="#" class="btn btn-link w-100 text-start mb-2" aria-label="Gestionar Cursos">Cursos</a>
+    <a href="#" class="btn btn-link w-100 text-start mb-2" aria-label="Ver Evaluaciones">Evaluaciones</a>
+    <a href="#" class="btn btn-link w-100 text-start mb-2" aria-label="Configuración del sistema">Configuración</a>
+  </div>
+</div>
+<!-- Aquí NO hay </div> extra -->

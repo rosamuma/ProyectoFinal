@@ -1,15 +1,12 @@
-<div class="card p-3">
-  <h5>Actividad Reciente</h5>
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title">Actividad Reciente</h5>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngFor="let r of data?.recent">
-      <div class="d-flex justify-content-between">
-        <div>
-          <div>{{r.title}}</div>
-          <small class="text-muted">{{r.subtitle}}</small>
-        </div>
-        <div><span class="badge bg-light text-dark">{{r.badge}}</span></div>
-      </div>
-    </li>
+    <li class="list-group-item"><span class="badge bg-primary me-2">Curso</span>Nuevo módulo agregado: "Historia del Arte Contemporáneo"</li>
+    <li class="list-group-item"><span class="badge bg-success me-2">Evaluación</span>Carlos López obtuvo 95% en Matemáticas</li>
+    <li class="list-group-item"><span class="badge bg-warning me-2">Evento</span>Seminario de Investigación - 2 Octubre 15:00</li>
+    <li class="list-group-item"><span class="badge bg-info me-2">Sistema</span>Actualización de plataforma completada</li>
+    <li class="list-group-item"><span class="badge bg-secondary me-2">Notificación</span>Recordatorio: Período de calificaciones cierra el 5 Oct</li>
   </ul>
+  </div>
 </div>
-

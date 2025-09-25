@@ -1,9 +1,17 @@
-<div *ngIf="barChartData">
-  <canvas
-    baseChart
-    [data]="barChartData"
-    [options]="barChartOptions"
-    [type]="'bar'">
-  </canvas>
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Rendimiento Mensual</h5>
+    
+    <!-- aquí tu gráfica -->
+    <div *ngIf="barChartData" class="chart-container">
+      <canvas
+        baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </div>
+    <!-- fin de la gráfica -->
+    
+  </div>
 </div>
-
