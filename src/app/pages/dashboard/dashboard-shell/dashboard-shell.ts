@@ -7,11 +7,12 @@ import { RecentActivity } from '../recent-activity/recent-activity';
 import { MonthlyChart } from '../monthly-chart/monthly-chart';
 import { TopStudents } from '../top-students/top-students';
 import { AuthService } from '@services/auth.service';
+import { WelcomeHeader } from '../welcome-header/welcome-header'
 
 @Component({
   selector: 'app-dashboard-shell',
   standalone: true,
-  imports: [CommonModule, SummaryCards, ProgressSubjects, RecentActivity, MonthlyChart, TopStudents],
+  imports: [CommonModule, SummaryCards, ProgressSubjects, RecentActivity, MonthlyChart, TopStudents, WelcomeHeader],
   templateUrl: './dashboard-shell.html',
   styleUrls: ['./dashboard-shell.css']
 })

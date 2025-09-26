@@ -1,5 +1,11 @@
-<!-- usa *ngIf para mostrar u ocultar componentes según el rol. -->
-<div class="container-fluid">
+<div class="container-fluid mt-0">
+  <!-- Header de bienvenida -->
+  <div class="row">
+    <div class="col-12">
+      <app-welcome-header *ngIf="auth.isLogged()"></app-welcome-header>
+    </div>
+  </div>
+
   <div class="row g-3">
     <!-- visible para todos los logueados -->
     <div class="col-12">
@@ -21,7 +27,11 @@
     </div>
 
     <div class="col-lg-5">
+      <div class="card">
+        <div class="card-body">
           <app-top-students *ngIf="auth.isAdmin() || auth.isDocente()"></app-top-students>
+        </div>
+      </div>
     </div>
   </div>
 </div>
