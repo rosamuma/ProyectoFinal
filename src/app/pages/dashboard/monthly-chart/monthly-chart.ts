@@ -11,21 +11,36 @@ import { DashboardService } from '@services/dashboard.service';
   templateUrl: './monthly-chart.html',
   styleUrls: ['./monthly-chart.css']
 })
-export class MonthlyChart  implements OnInit {
-barChartData!: ChartConfiguration<'bar'>['data'];
+export class MonthlyChart implements OnInit {
+  barChartData!: ChartConfiguration<'bar'>['data'];
+  
   barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
+    maintainAspectRatio: false, // ← ESTA LÍNEA ES CLAVE
     plugins: {
       legend: { display: false }
+    },
+    scales: {
+      x: {
+        ticks: {
+          maxRotation: 45,
+          minRotation: 45
+        }
+      },
+      y: {
+        beginAtZero: true,
+        max: 100
+      }
     }
   };
 
   constructor(private ds: DashboardService) {}
+  
   ngOnInit() {
     this.ds.getDashboard().subscribe(d => {
       this.barChartData = {
-        labels: d.monthly.months,         //son los nombres de cada columna en el eje X del gráfico. Ejemplo: ['Enero', 'Febrero', 'Marzo', 'Abril']
-        datasets: [                       //es un arreglo con los valores que se van a graficar. Ejemplo: [65, 59, 80, 81]
+        labels: d.monthly.months,
+        datasets: [
           { data: d.monthly.values, label: 'Rendimiento Mensual' }
         ]
       };

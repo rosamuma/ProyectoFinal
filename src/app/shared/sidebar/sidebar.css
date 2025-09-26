@@ -1,5 +1,5 @@
 .sidebar {
-  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(180deg, #2561E7 0%, #204BC2 100%);
   min-height: 100vh;
   width: 250px;
 }
@@ -10,13 +10,13 @@
 }
 
 .sidebar .nav-link:hover {
-  background-color: #334155;
-  border-left-color: #3b82f6;
+  background-color: #204bc2b6;
+  border-left-color: #2562e762;
 }
 
 .sidebar .nav-link.active {
-  background-color: #3b82f6;
-  border-left-color: #60a5fa;
+  background-color: #204BC2;
+  border-left-color: #2561E7;
 }
 
 .offcanvas-title {

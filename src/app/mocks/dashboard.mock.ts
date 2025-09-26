@@ -22,6 +22,6 @@ export const DASHBOARD_MOCK: DashboardMock = {    //export const → se crea una
     {title:'Ana García completó "Álgebra Lineal"', subtitle:'Matemáticas · Hace 2 horas', time:'2h', badge:'Nuevo'},
     {title:'Evaluación programada para mañana', subtitle:'Química Orgánica · Prof. Martínez', time:'1d', badge:'Pronto'},
   ],
-  monthly: { months:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago'], values:[50,60,70,80,75,85,80,90] },
+  monthly: { months:['Ene','Feb','Mar','Abr','May','Jun'], values:[50,60,70,80,75,85] },
   topStudents: [{name:'Sofía García', grade:9.8, place:1},{name:'Carlos Méndez', grade:9.5, place:2},{name:'Laura Rodríguez', grade:9.2, place:3}]
 };

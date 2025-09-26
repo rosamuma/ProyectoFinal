@@ -1,0 +1,11 @@
+.chart-wrapper {
+  position: relative;
+  height: 250px; /* Altura fija */
+  width: 100%;
+}
+
+/* Asegurar que el canvas ocupe todo el contenedor */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
