@@ -1,35 +1,39 @@
-<div class="container-fluid mt-0">
+<div class="container-fluid dashboard-container">
   <!-- Header de bienvenida -->
-  <div class="row">
+  <div class="row dashboard-grid">
     <div class="col-12">
-      <app-welcome-header *ngIf="auth.isLogged()"></app-welcome-header>
+      <app-welcome-header class="welcome-header" *ngIf="auth.isLogged()"></app-welcome-header>
     </div>
-  </div>
 
-  <div class="row g-3">
-    <!-- visible para todos los logueados -->
+    <!-- Tarjetas resumen - visible para todos los logueados -->
     <div class="col-12">
-      <app-summary-cards *ngIf="auth.isLogged()"></app-summary-cards>
+      <app-summary-cards class="summary-card" *ngIf="auth.isLogged()"></app-summary-cards>
     </div>
 
-    <!-- solo docentes y admin -->
-    <div class="col-lg-7">
-      <app-progress-subjects *ngIf="auth.isDocente() || auth.isAdmin()"></app-progress-subjects>
+    <!-- Primera fila de contenido -->
+    <div class="col-xl-8 col-lg-7">
+      <div class="row g-3">
+        <!-- Progreso por materia -->
+        <div class="col-12">
+          <app-progress-subjects class="progress-card" *ngIf="auth.isDocente() || auth.isAdmin()"></app-progress-subjects>
+        </div>
+        <!-- Gráfico mensual -->
+        <div class="col-12">
+          <app-monthly-chart class="monthly-chart-card" *ngIf="auth.isDocente() || auth.isAdmin()"></app-monthly-chart>
+        </div>
+      </div>
     </div>
 
-    <div class="col-lg-5">
-      <app-recent-activity *ngIf="auth.isDocente() || auth.isAdmin()"></app-recent-activity>
-    </div>
-
-    <!-- solo docentes y admin -->
-    <div class="col-lg-7">
-      <app-monthly-chart *ngIf="auth.isDocente() || auth.isAdmin()"></app-monthly-chart>
-    </div>
-
-    <div class="col-lg-5">
-
-          <app-top-students *ngIf="auth.isAdmin() || auth.isDocente()"></app-top-students>
-
+    <!-- Segunda columna - Actividad y mejores estudiantes -->
+    <div class="col-xl-4 col-lg-5">
+      <div class="row g-3">
+        <div class="col-12">
+          <app-recent-activity class="activity-card" *ngIf="auth.isDocente() || auth.isAdmin()"></app-recent-activity>
+        </div>
+        <div class="col-12">
+          <app-top-students class="students-card" *ngIf="auth.isAdmin() || auth.isDocente()"></app-top-students>
+        </div>
+      </div>
     </div>
   </div>
 </div>

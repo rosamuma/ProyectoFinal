@@ -1,27 +1,49 @@
 <div class="row g-3">
-  <div class="col-md-3" *ngIf="data">
-    <div class="card p-3">
-      <small>Total Estudiantes</small>
-      <h3>{{data.totalStudents}}</h3>
+  <div class="col-sm-6 col-xl-3" *ngIf="data">
+    <div class="card summary-card h-100">
+      <div class="card-body text-center p-4">
+        <div class="text-primary mb-3">
+          <i class="bi bi-people-fill fs-1"></i>
+        </div>
+        <small class="text-muted d-block">Total Estudiantes</small>
+        <h3 class="text-dark fw-bold mb-0">{{data.totalStudents}}</h3>
+      </div>
     </div>
   </div>
-  <div class="col-md-3" *ngIf="data">
-    <div class="card p-3">
-      <small>Profesores Activos</small>
-      <h3>{{data.totalTeachers}}</h3>
+  
+  <div class="col-sm-6 col-xl-3" *ngIf="data">
+    <div class="card summary-card h-100">
+      <div class="card-body text-center p-4">
+        <div class="text-success mb-3">
+          <i class="bi bi-person-badge fs-1"></i>
+        </div>
+        <small class="text-muted d-block">Profesores Activos</small>
+        <h3 class="text-dark fw-bold mb-0">{{data.totalTeachers}}</h3>
+      </div>
     </div>
   </div>
-  <div class="col-md-3" *ngIf="data">
-    <div class="card p-3">
-      <small>Cursos Disponibles</small>
-      <h3>{{data.totalCourses}}</h3>
+  
+  <div class="col-sm-6 col-xl-3" *ngIf="data">
+    <div class="card summary-card h-100">
+      <div class="card-body text-center p-4">
+        <div class="text-warning mb-3">
+          <i class="bi bi-journals fs-1"></i>
+        </div>
+        <small class="text-muted d-block">Cursos Disponibles</small>
+        <h3 class="text-dark fw-bold mb-0">{{data.totalCourses}}</h3>
+      </div>
     </div>
   </div>
-  <div class="col-md-3" *ngIf="data">
-    <div class="card p-3">
-      <small>Promedio General</small>
-      <h3>{{data.avgGrade}}</h3>
+  
+  <div class="col-sm-6 col-xl-3" *ngIf="data">
+    <div class="card summary-card h-100">
+      <div class="card-body text-center p-4">
+        <div class="text-info mb-3">
+          <i class="bi bi-graph-up fs-1"></i>
+        </div>
+        <small class="text-muted d-block">Promedio General</small>
+        <h3 class="text-dark fw-bold mb-0">{{data.avgGrade}}</h3>
+      </div>
     </div>
   </div>
 </div>
-
