@@ -1,4 +1,47 @@
+/* 
+Componente: welcome-header
+Colores:
+  - Texto principal: #2c3e50
+  - Texto secundario: #7f8c8d
+  - Fondo: transparente
+Clases Bootstrap: row, align-items-center, col-md-*, text-md-end
+*/
 .welcome-header {
-  border-left: 4px solid #2561E7;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: transparent;
+  padding: 1.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.welcome-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.welcome-subtitle {
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.current-date {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .current-date {
+    text-align: left !important;
+    margin-top: 0.5rem;
+  }
 }

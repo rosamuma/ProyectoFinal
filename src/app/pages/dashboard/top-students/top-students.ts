@@ -19,4 +19,14 @@ top: any[] = [];
       this.top = d.topStudents;  
     });
   }
+
+   // 👇 Método para asignar colores de medallas
+  getMedalColor(place: number): string {
+    switch (place) {
+      case 1: return 'gold';     // 1er lugar: oro
+      case 2: return 'silver';   // 2do lugar: plata
+      case 3: return '#cd7f32';  // 3er lugar: bronce
+      default: return '#6c757d'; // Otros: gris (secondary)
+    }
+  }
 }

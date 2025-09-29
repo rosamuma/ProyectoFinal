@@ -1,25 +1,126 @@
+/* 
+Componente: sidebar
+Colores: 
+  - Gradiente: #667eea to #764ba2
+  - Texto: #ffffff
+  - Hover: rgba(255,255,255,0.1)
+*/
 .sidebar {
-  background: linear-gradient(180deg, #2561E7 0%, #204BC2 100%);
-  min-height: 100vh;
-  width: 250px;
+  background: linear-gradient(135deg, #2460E5 0%, #1F48BC 100%);
+  color: white;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(58, 58, 58, 0.25);
 }
 
-.sidebar .nav-link {
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.sidebar-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0.25rem 0 0 0;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   transition: all 0.3s ease;
-  border-left: 3px solid transparent;
 }
 
-.sidebar .nav-link:hover {
-  background-color: #204bc2b6;
-  border-left-color: #2562e762;
+.nav-link:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(5px);
 }
 
-.sidebar .nav-link.active {
-  background-color: #204BC2;
-  border-left-color: #2561E7;
+.nav-link i {
+  width: 20px;
+  text-align: center;
 }
 
-.offcanvas-title {
-  font-weight: 700;
-  font-size: 1.3rem;
+.nav-link span {
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.academic-period {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .sidebar {
+    width: 250px;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 80px;
+  }
+  
+  .nav-link {
+    flex-direction: column;
+    padding: 0.5rem;
+    text-align: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .nav-link:hover {
+    transform: translateY(-2px);
+  }
 }

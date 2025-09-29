@@ -1,0 +1,80 @@
+/* 
+Componente: summary-cards
+Colores:
+  - Card fondo: #ffffff
+  - Sombra: 0 2px 8px rgba(0,0,0,0.08)
+  - Valor: #2c3e50
+  - Label: #7f8c8d
+Clases Bootstrap: row, g-3, col-xl-3, col-md-6, card, card-body, d-flex, justify-content-between, align-items-start
+*/
+.summary-cards {
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.card-value {
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+}
+
+.card-label {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.card-icon.students {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.card-icon.teachers {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
+.card-icon.courses {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+}
+
+.card-icon.average {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .card-value {
+    font-size: 1.75rem;
+  }
+  
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

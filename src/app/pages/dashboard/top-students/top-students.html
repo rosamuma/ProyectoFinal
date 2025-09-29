@@ -1,20 +1,27 @@
-<div class="card shadow-sm border-0 h-100">
-  <div class="card-header bg-white border-0 py-3">
-    <h5 class="card-title mb-0 fw-bold text-dark">Mejores Estudiantes</h5>
+<!-- 
+Componente: top-students
+Ubicación: /src/app/components/top-students/top-students.component.html
+Dependencias: Bootstrap 5, Datos del DashboardService (topStudents array)
+Breakpoints: Desktop/Laptop (oculto en móviles)
+-->
+<div class="top-students card">
+  <div class="card-header">
+    <h2 class="card-title">Mejores Estudiantes</h2>
   </div>
   <div class="card-body">
-    <div class="row g-3">
-      <div *ngFor="let s of top" class="col-sm-6 col-lg-12 col-xl-6">
-        <div class="card border-0 bg-light h-100">
-          <div class="card-body text-center p-3">
-            <div class="badge bg-primary rounded-circle mb-2 mx-auto d-flex align-items-center justify-content-center" 
-                 style="width: 40px; height: 40px;">
-              <span class="fw-bold">{{s.place}}</span>
-            </div>
-            <h6 class="fw-bold mb-1 text-dark">{{s.name}}</h6>
-            <h3 class="text-primary mb-1 fw-bold">{{s.grade}}</h3>
-            <small class="text-muted">{{s.place}}° Puesto - Promedio</small>
-          </div>
+    <div class="students-list">
+      <div *ngFor="let student of top" class="student-item" aria-label="Estudiante {{ student.name }} con calificación {{ student.grade }}">
+        <div class="student-rank">
+          <span class="rank-badge" [class]="'rank-' + student.place">
+            {{ student.place }}
+          </span>
+        </div>
+        <div class="student-info">
+          <h3 class="student-name">{{ student.name }}</h3>
+          <p class="student-grade">Calificación: {{ student.grade }}/10</p>
+        </div>
+        <div class="student-medal">
+          <i class="fas fa-medal" [style.color]="getMedalColor(student.place)"></i>
         </div>
       </div>
     </div>

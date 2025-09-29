@@ -1,35 +1,41 @@
-<div class="card shadow-sm border-0 h-100">
-  <div class="card-header bg-white border-0 py-3">
-    <h5 class="card-title mb-0 fw-bold text-dark">Progreso por Materia</h5>
+<!-- 
+Componente: progress-subjects
+Ubicación: /src/app/components/progress-subjects/progress-subjects.component.html
+Dependencias: Bootstrap 5, Datos del DashboardService (progress array)
+Breakpoints: Todos (responsive)
+-->
+<div class="progress-subjects card">
+  <div class="card-header">
+    <h2 class="card-title">Progreso por Materia</h2>
   </div>
   <div class="card-body">
-    <div class="mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <span class="fw-medium">Matemáticas</span>
-        <span class="text-primary fw-bold">75%</span>
-      </div>
-      <div class="progress" style="height: 8px;">
-        <div class="progress-bar bg-success" style="width: 75%;"></div>
-      </div>
-    </div>
-    
-    <div class="mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <span class="fw-medium">Lenguaje</span>
-        <span class="text-primary fw-bold">60%</span>
-      </div>
-      <div class="progress" style="height: 8px;">
-        <div class="progress-bar bg-info" style="width: 60%;"></div>
-      </div>
-    </div>
-    
-    <div class="mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <span class="fw-medium">Ciencias</span>
-        <span class="text-primary fw-bold">45%</span>
-      </div>
-      <div class="progress" style="height: 8px;">
-        <div class="progress-bar bg-warning" style="width: 45%;"></div>
+    <div class="subjects-list">
+      <div *ngFor="let subject of data" class="subject-item" aria-label="Progreso de {{ subject.name }}">
+        <div class="subject-header">
+          <h3 class="subject-name">{{ subject.name }}</h3>
+          <span class="student-count">{{ subject.students }} estudiantes</span>
+        </div>
+        
+        <div class="progress-container">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="progress-text">
+              {{ subject.completedModules }}/{{ subject.totalModules }} módulos
+            </span>
+            <span class="progress-percent">
+              {{ (subject.completedModules / subject.totalModules * 100) | number:'1.0-0' }}%
+            </span>
+          </div>
+          
+          <div class="progress">
+            <div class="progress-bar" 
+                 role="progressbar" 
+                 [style.width.%]="(subject.completedModules / subject.totalModules * 100)"
+                 [attr.aria-valuenow]="(subject.completedModules / subject.totalModules * 100)"
+                 aria-valuemin="0" 
+                 aria-valuemax="100">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

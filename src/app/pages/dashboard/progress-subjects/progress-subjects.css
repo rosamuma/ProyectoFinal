@@ -1,0 +1,115 @@
+/* 
+Componente: progress-subjects
+Colores:
+  - Card: #ffffff
+  - Sombra: 0 2px 8px rgba(0,0,0,0.08)
+  - Progress bar: linear-gradient(135deg, #667eea, #764ba2)
+Clases Bootstrap: card, card-header, card-body, progress, progress-bar, d-flex, justify-content-between, align-items-center, mb-2
+*/
+.progress-subjects {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.15);
+  height: 100%;
+}
+
+.progress-subjects:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid #ecf0f1;
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.card-title {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-body {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.subjects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.subject-item {
+  padding: 0;
+}
+
+.subject-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.subject-name {
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.student-count {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  background: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.progress-container {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.progress-text {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.progress-percent {
+  color: #667eea;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.progress {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subject-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .card-body {
+    padding: 0.75rem 1rem 1rem;
+  }
+  
+  .progress-container {
+    padding: 0.75rem;
+  }
+}

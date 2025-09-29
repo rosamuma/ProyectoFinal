@@ -1,11 +1,59 @@
-.chart-wrapper {
+/* 
+Componente: monthly-chart
+Colores:
+  - Card: #ffffff
+  - Sombra: 0 2px 8px rgba(0,0,0,0.08)
+Clases Bootstrap: card, card-header, card-body
+*/
+.monthly-chart {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.15);
+  height: 100%;
+}
+
+.monthly-chart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid #ecf0f1;
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.card-title {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.chart-container {
   position: relative;
-  height: 250px; /* Altura fija */
+  height: 300px;
   width: 100%;
 }
 
-/* Asegurar que el canvas ocupe todo el contenedor */
+/* Asegurar que el canvas sea responsive */
 canvas {
   width: 100% !important;
   height: 100% !important;
+  max-height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 250px;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
 }

@@ -1,16 +1,22 @@
-<div class="container-fluid dashboard-container">
-  <!-- Header de bienvenida -->
+<!-- 
+Componente: dashboard-shell
+Ubicación: /src/app/components/dashboard-shell/dashboard-shell.component.html
+Dependencias: Bootstrap 5, Todos los componentes hijos
+Breakpoints: Mobile (360px), Tablet (768px), Laptop (1366px), Desktop (1920px)
+-->
+<div class="dashboard-container">
   <div class="row dashboard-grid">
+    <!-- Header de bienvenida - Visible para todos los usuarios logueados -->
     <div class="col-12">
       <app-welcome-header class="welcome-header" *ngIf="auth.isLogged()"></app-welcome-header>
     </div>
 
-    <!-- Tarjetas resumen - visible para todos los logueados -->
+    <!-- Tarjetas resumen - Visible para todos los usuarios logueados -->
     <div class="col-12">
       <app-summary-cards class="summary-card" *ngIf="auth.isLogged()"></app-summary-cards>
     </div>
 
-    <!-- Primera fila de contenido -->
+    <!-- Primera fila de contenido - Visible para DOCENTE y ADMIN -->
     <div class="col-xl-8 col-lg-7">
       <div class="row g-3">
         <!-- Progreso por materia -->
@@ -21,19 +27,68 @@
         <div class="col-12">
           <app-monthly-chart class="monthly-chart-card" *ngIf="auth.isDocente() || auth.isAdmin()"></app-monthly-chart>
         </div>
+        
+        <!-- Placeholder para ESTUDIANTE -->
+        <div class="col-12">
+          <div class="student-placeholder card" *ngIf="auth.isEstudiante()">
+            <div class="card-body">
+              <h3>Mi Progreso</h3>
+              <p>Información específica del estudiante</p>
+              <!-- Contenido específico para estudiantes usando datos del mock -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Placeholder para PADRE -->
+        <div class="col-12">
+          <div class="parent-placeholder card" *ngIf="auth.isPadre()">
+            <div class="card-body">
+              <h3>Información del Estudiante</h3>
+              <p>Notas y asistencias</p>
+              <!-- Contenido específico para padres usando datos del mock -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Segunda columna - Actividad y mejores estudiantes -->
+    <!-- Segunda columna - Actividad y mejores estudiantes - Visible para DOCENTE y ADMIN -->
     <div class="col-xl-4 col-lg-5">
       <div class="row g-3">
+        <!-- Actividad reciente -->
         <div class="col-12">
           <app-recent-activity class="activity-card" *ngIf="auth.isDocente() || auth.isAdmin()"></app-recent-activity>
         </div>
+        <!-- Mejores estudiantes -->
         <div class="col-12">
           <app-top-students class="students-card" *ngIf="auth.isAdmin() || auth.isDocente()"></app-top-students>
+        </div>
+        
+        <!-- Placeholders para ESTUDIANTE y PADRE -->
+        <div class="col-12">
+          <div class="student-sidebar card" *ngIf="auth.isEstudiante()">
+            <div class="card-body">
+              <h3>Mis Calificaciones</h3>
+              <!-- Usar datos del mock para estudiantes -->
+            </div>
+          </div>
+          
+          <div class="parent-sidebar card" *ngIf="auth.isPadre()">
+            <div class="card-body">
+              <h3>Asistencias</h3>
+              <!-- Usar datos del mock para padres -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- 
+  Nota sobre scroll interno:
+  Para contenido muy extenso, los siguientes componentes deben tener max-height y overflow-auto:
+  - .activity-list (en recent-activity)
+  - .students-list (en top-students) 
+  - .subjects-list (en progress-subjects)
+-->

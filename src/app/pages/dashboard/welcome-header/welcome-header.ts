@@ -9,15 +9,9 @@ import { CommonModule } from '@angular/common';         //sirve para proporciona
   styleUrls: ['./welcome-header.css']
 })
 export class WelcomeHeader implements OnInit {
-  currentDate: string = '';
+  currentDate: Date = new Date(); // Cambia de string a Date
 
   ngOnInit() {
-    const now = new Date();
-    this.currentDate = now.toLocaleDateString('es-ES', { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
+    this.currentDate = new Date(); // Solo asignar Date, sin formatear
   }
 }

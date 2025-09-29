@@ -1,28 +1,26 @@
-<div class="card shadow-sm border-0 h-100">
-  <div class="card-header bg-white border-0 py-3">
-    <h5 class="card-title mb-0 fw-bold text-dark">Actividad Reciente</h5>
+<!-- 
+Componente: recent-activity
+Ubicación: /src/app/components/recent-activity/recent-activity.component.html
+Dependencias: Bootstrap 5, Datos del DashboardService (recent array)
+Breakpoints: Todos (responsive)
+-->
+<div class="recent-activity card h-100">
+  <div class="card-header">
+    <h2 class="card-title">Actividad Reciente</h2>
   </div>
-  <div class="card-body p-0">
-    <div class="list-group list-group-flush">
-      <div class="list-group-item border-0 py-3">
-        <span class="badge bg-primary me-2">Curso</span>
-        Nuevo módulo agregado: "Historia del Arte Contemporáneo"
-      </div>
-      <div class="list-group-item border-0 py-3">
-        <span class="badge bg-success me-2">Evaluación</span>
-        Carlos López obtuvo 95% en Matemáticas
-      </div>
-      <div class="list-group-item border-0 py-3">
-        <span class="badge bg-warning me-2">Evento</span>
-        Seminario de Investigación - 2 Octubre 15:00
-      </div>
-      <div class="list-group-item border-0 py-3">
-        <span class="badge bg-info me-2">Sistema</span>
-        Actualización de plataforma completada
-      </div>
-      <div class="list-group-item border-0 py-3">
-        <span class="badge bg-secondary me-2">Notificación</span>
-        Recordatorio: Período de calificaciones cierra el 5 Oct
+  <div class="card-body">
+    <div class="activity-list">
+      <div *ngFor="let activity of data" class="activity-item" aria-label="Actividad: {{ activity.title }}">
+        <div class="activity-content">
+          <h3 class="activity-title">{{ activity.title }}</h3>
+          <p class="activity-subtitle">{{ activity.subtitle }}</p>
+        </div>
+        <div class="activity-meta">
+          <span class="activity-time">{{ activity.time }}</span>
+          <span *ngIf="activity.badge" class="activity-badge" [class]="'badge ' + getBadgeClass(activity.badge)">
+            {{ activity.badge }}
+          </span>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,25 @@
+/* 
+Componente: private-layout
+Ubicación: /src/app/layouts/private-layout/private-layout.css
+Dependencias: Bootstrap 5
+Breakpoints: Mobile (columna), Desktop (fila)
+*/
+.private-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Desktop - Sidebar fijo a la izquierda */
+@media (min-width: 769px) {
+  .private-layout {
+    flex-direction: row;
+  }
+}
+
+/* Mobile - Sidebar arriba, contenido abajo */
+@media (max-width: 768px) {
+  .private-layout {
+    flex-direction: column;
+  }
+}

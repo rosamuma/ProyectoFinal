@@ -13,5 +13,15 @@ export class RecentActivity implements OnInit {
   data: any;          
   constructor(private ds: DashboardService) {}          
   ngOnInit(){         
-     this.ds.getDashboard().subscribe(d => this.data = d.recent); }
+     this.ds.getDashboard().subscribe(d => this.data = d.recent);
+    }
+
+    getBadgeClass(badge: string): string {
+    switch (badge) {
+      case 'Completado': return 'bg-success';
+      case 'Pendiente': return 'bg-warning text-dark';
+      case 'Error': return 'bg-danger';
+      default: return 'bg-secondary';
+    }
+  }
 }

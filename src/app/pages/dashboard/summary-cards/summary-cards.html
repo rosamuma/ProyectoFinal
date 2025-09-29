@@ -1,48 +1,76 @@
-<div class="row g-3">
-  <div class="col-sm-6 col-xl-3" *ngIf="data">
-    <div class="card summary-card h-100">
-      <div class="card-body text-center p-4">
-        <div class="text-primary mb-3">
-          <i class="bi bi-people-fill fs-1"></i>
+<!-- 
+Componente: summary-cards
+Ubicación: /src/app/components/summary-cards/summary-cards.component.html
+Dependencias: Bootstrap 5, Datos del DashboardService
+Breakpoints: Todos (responsive grid)
+-->
+<div class="summary-cards" aria-label="Resumen de estadísticas">
+  <div class="row g-3">
+    <!-- Total Estudiantes -->
+    <div class="col-xl-3 col-md-6">
+      <div class="summary-card card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h3 class="card-value">{{ data?.totalStudents || 0 }}</h3>
+              <p class="card-label">Estudiantes</p>
+            </div>
+            <div class="card-icon students">
+              <i class="fas fa-users"></i>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block">Total Estudiantes</small>
-        <h3 class="text-dark fw-bold mb-0">{{data.totalStudents}}</h3>
       </div>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-xl-3" *ngIf="data">
-    <div class="card summary-card h-100">
-      <div class="card-body text-center p-4">
-        <div class="text-success mb-3">
-          <i class="bi bi-person-badge fs-1"></i>
+    
+    <!-- Total Docentes -->
+    <div class="col-xl-3 col-md-6">
+      <div class="summary-card card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h3 class="card-value">{{ data?.totalTeachers || 0 }}</h3>
+              <p class="card-label">Docentes</p>
+            </div>
+            <div class="card-icon teachers">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block">Profesores Activos</small>
-        <h3 class="text-dark fw-bold mb-0">{{data.totalTeachers}}</h3>
       </div>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-xl-3" *ngIf="data">
-    <div class="card summary-card h-100">
-      <div class="card-body text-center p-4">
-        <div class="text-warning mb-3">
-          <i class="bi bi-journals fs-1"></i>
+    
+    <!-- Total Cursos -->
+    <div class="col-xl-3 col-md-6">
+      <div class="summary-card card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h3 class="card-value">{{ data?.totalCourses || 0 }}</h3>
+              <p class="card-label">Cursos</p>
+            </div>
+            <div class="card-icon courses">
+              <i class="fas fa-book"></i>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block">Cursos Disponibles</small>
-        <h3 class="text-dark fw-bold mb-0">{{data.totalCourses}}</h3>
       </div>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-xl-3" *ngIf="data">
-    <div class="card summary-card h-100">
-      <div class="card-body text-center p-4">
-        <div class="text-info mb-3">
-          <i class="bi bi-graph-up fs-1"></i>
+    
+    <!-- Promedio General -->
+    <div class="col-xl-3 col-md-6">
+      <div class="summary-card card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h3 class="card-value">{{ data?.avgGrade || 0 }}</h3>
+              <p class="card-label">Promedio General</p>
+            </div>
+            <div class="card-icon average">
+              <i class="fas fa-chart-line"></i>
+            </div>
+          </div>
         </div>
-        <small class="text-muted d-block">Promedio General</small>
-        <h3 class="text-dark fw-bold mb-0">{{data.avgGrade}}</h3>
       </div>
     </div>
   </div>

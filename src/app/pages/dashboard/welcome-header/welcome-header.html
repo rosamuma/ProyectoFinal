@@ -1,14 +1,19 @@
-<div class="welcome-header bg-gradient-primary text-white rounded-3 p-4 mb-4 shadow-sm">
+<!-- 
+Componente: welcome-header
+Ubicación: /src/app/components/welcome-header/welcome-header.component.html
+Dependencias: Bootstrap 5
+Breakpoints: Todos (responsive)
+-->
+<header class="welcome-header" aria-label="Encabezado de bienvenida">
   <div class="row align-items-center">
     <div class="col-md-8">
-      <h1 class="h3 mb-2 fw-bold">Bienvenido al panel de iClass</h1>
-      <p class="mb-0 opacity-75">Gestión académica integral para instituciones educativas</p>
+      <h1 class="welcome-title">Bienvenido al Panel iClass</h1>
+      <p class="welcome-subtitle">Gestión académica integral para instituciones educativas</p>
     </div>
-    <div class="col-md-4 text-md-end">
-      <span class="badge bg-light text-dark fs-6">
-        <i class="bi bi-calendar3 me-2"></i>
-        {{ currentDate }}
-      </span>
-    </div>
+    <!-- <div class="col-md-4 text-md-end">
+      <div class="current-date">
+        {{ currentDate | date:'fullDate' }}
+      </div>
+    </div>-->
   </div>
-</div>
+</header>

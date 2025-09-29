@@ -1,13 +1,23 @@
-<div class="card shadow-sm h-100 border-0">
-  <div class="card-header bg-white border-0 py-3">
-    <h5 class="card-title mb-0 fw-bold text-dark">Rendimiento Mensual</h5>
+<!-- 
+Componente: monthly-chart
+Ubicación: /src/app/components/monthly-chart/monthly-chart.component.html
+Dependencias: ng2-charts, Chart.js, Bootstrap 5
+Breakpoints: Todos (responsive canvas)
+-->
+<div class="monthly-chart card">
+  <div class="card-header">
+    <h2 class="card-title">Rendimiento Mensual</h2>
   </div>
-  <div class="card-body d-flex flex-column p-3">
-    <div class="chart-wrapper flex-grow-1" style="min-height: 250px;">
+  <div class="card-body">
+    <div class="chart-container">
+      <!-- 
+        Nota: Este canvas usa baseChart directive de ng2-charts
+        Requiere: BaseChartDirective importado en el componente TypeScript
+      -->
       <canvas baseChart
               [data]="barChartData"
               [options]="barChartOptions"
-              [type]="'bar'">
+              type="bar">
       </canvas>
     </div>
   </div>

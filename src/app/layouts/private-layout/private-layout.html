@@ -1,7 +1,12 @@
-<div class="d-flex">
-  <app-sidebar></app-sidebar>
-  <div class="flex-grow-1 p-4">
+<!-- 
+Componente: private-layout
+Ubicación: /src/app/layouts/private-layout/private-layout.html
+Dependencias: Bootstrap 5, Sidebar component
+Breakpoints: Mobile (columna), Desktop (fila)
+-->
+<div class="private-layout">
+  <app-sidebar class="sidebar-container"></app-sidebar>
+  <main class="content-area">
     <router-outlet></router-outlet>
-  </div>
+  </main>
 </div>
-
