@@ -46,14 +46,13 @@ Clases Bootstrap: card, card-header, card-body, d-none, d-lg-block
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: #f8f9fa;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .student-item:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 .student-rank {
@@ -73,15 +72,15 @@ Clases Bootstrap: card, card-header, card-body, d-none, d-lg-block
 }
 
 .rank-1 {
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  background: linear-gradient(135deg, #a6c7ba, #0FB580);
 }
 
 .rank-2 {
-  background: linear-gradient(135deg, #c0c0c0, #e0e0e0);
+  background: linear-gradient(135deg, #a4c5cc, #05B2D0);
 }
 
 .rank-3 {
-  background: linear-gradient(135deg, #cd7f32, #e89c5d);
+  background: linear-gradient(135deg, #cf7fd8, #b472bd);
 }
 
 .student-info {
@@ -96,7 +95,7 @@ Clases Bootstrap: card, card-header, card-body, d-none, d-lg-block
 }
 
 .student-grade {
-  color: #7f8c8d;
+  color: #6e7070;
   font-size: 0.85rem;
   margin: 0;
 }
@@ -118,4 +117,30 @@ Clases Bootstrap: card, card-header, card-body, d-none, d-lg-block
   .top-students {
     display: block;
   }
+}
+
+/* Colores diferentes para cada estudiante */
+.student-item:nth-child(1) {
+  background: linear-gradient(135deg, #43e97a, #38f9d7);
+}
+
+.student-item:nth-child(2) {
+  background: linear-gradient(135deg, #4facfe, #00f2fe); 
+}
+
+.student-item:nth-child(3) {
+  background: linear-gradient(135deg, #f093fb, #f5576c); 
+}
+
+/* Cambiar colores de medallas */
+.student-item:nth-child(1) .fa-medal {
+  color: #ffffff !important; 
+}
+
+.student-item:nth-child(2) .fa-medal {
+  color: #ffffff !important; 
+}
+
+.student-item:nth-child(3) .fa-medal {
+  color: #ffffff !important; 
 }

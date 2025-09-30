@@ -90,3 +90,15 @@ Colores:
 .subjects-list::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+/* Para el user-menu en desktop */
+.user-menu {
+  margin-top: 0.5rem;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .user-menu {
+    margin-top: 0;
+  }
+}

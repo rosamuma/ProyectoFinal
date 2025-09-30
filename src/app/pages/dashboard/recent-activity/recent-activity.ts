@@ -18,9 +18,11 @@ export class RecentActivity implements OnInit {
 
     getBadgeClass(badge: string): string {
     switch (badge) {
-      case 'Completado': return 'bg-success';
-      case 'Pendiente': return 'bg-warning text-dark';
-      case 'Error': return 'bg-danger';
+      case 'Nuevo': return 'bg-primary';        // ← Azul
+      case 'Pronto': return 'bg-warning';       // ← Amarillo/Naranja  
+      case 'Completado': return 'bg-success';   // ← Verde
+      case 'Importante': return 'bg-info';      // ← Azul claro
+      case 'Pendiente': return 'bg-danger';     // ← Rojo
       default: return 'bg-secondary';
     }
   }

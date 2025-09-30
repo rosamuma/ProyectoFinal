@@ -19,7 +19,7 @@ Clases Bootstrap: card, card-header, card-body
 
 .card-header {
   background: transparent;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid #f1ecef;
   padding: 1.25rem 1.5rem 0.5rem;
 }
 

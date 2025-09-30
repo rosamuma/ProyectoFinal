@@ -403,4 +403,14 @@ isPadre(): boolean {
   return this.hasRole(UserRole.PADRE);
 }
 
+// Propiedad user para acceso directo
+get user() {
+  return this.getCurrentUser();
+}
+
+// Método getUser para compatibilidad
+getUser() {
+  return this.getCurrentUser();
+}
+
 }

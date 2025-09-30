@@ -1,0 +1,20 @@
+<div class="user-menu" role="navigation" aria-label="User menu">
+  <button class="avatar-btn" (click)="toggle()" aria-haspopup="true" [attr.aria-expanded]="open">
+    <!-- usa tu icono/imagen; aquí se usa font-awesome -->
+    <i class="fas fa-user-circle fa-2x"></i>
+  </button>
+
+  <div class="menu-dropdown" *ngIf="open" role="menu" aria-label="User options">
+    <div class="menu-profile">
+      <div class="profile-name">{{ user.firstName }} {{ user.lastName }}</div>
+      <div class="profile-email">{{ user.email }}</div>
+    </div>
+
+    <ul class="menu-list">
+      <li><a class="menu-item" href="#" (click)="$event.preventDefault();">Perfil</a></li>
+      <li><a class="menu-item" href="#" (click)="$event.preventDefault();">Ayuda</a></li>
+      <li class="divider"></li>
+      <li><button class="menu-item danger" (click)="onLogout()">Cerrar sesión</button></li>
+    </ul>
+  </div>
+</div>

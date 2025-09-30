@@ -8,7 +8,10 @@ Breakpoints: Mobile (360px), Tablet (768px), Laptop (1366px), Desktop (1920px)
   <div class="row dashboard-grid">
     <!-- Header de bienvenida - Visible para todos los usuarios logueados -->
     <div class="col-12">
+      <div class="d-flex justify-content-between align-items-start">
       <app-welcome-header class="welcome-header" *ngIf="auth.isLogged()"></app-welcome-header>
+      <app-user-menu class="user-menu" *ngIf="auth.isLogged()"></app-user-menu>
+      </div>
     </div>
 
     <!-- Tarjetas resumen - Visible para todos los usuarios logueados -->
@@ -17,7 +20,7 @@ Breakpoints: Mobile (360px), Tablet (768px), Laptop (1366px), Desktop (1920px)
     </div>
 
     <!-- Primera fila de contenido - Visible para DOCENTE y ADMIN -->
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-7 col-lg-6">
       <div class="row g-3">
         <!-- Progreso por materia -->
         <div class="col-12">

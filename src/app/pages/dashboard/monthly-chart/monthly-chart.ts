@@ -16,7 +16,7 @@ export class MonthlyChart implements OnInit {
   
   barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
-    maintainAspectRatio: false, // ← ESTA LÍNEA ES CLAVE
+    maintainAspectRatio: false,
     plugins: {
       legend: { display: false }
     },
@@ -31,6 +31,13 @@ export class MonthlyChart implements OnInit {
         beginAtZero: true,
         max: 100
       }
+    },
+    elements: {
+      bar: {
+        borderWidth: 0,           // ← SIN BORDE
+        borderRadius: 8,          // ← Bordes redondeados
+        borderSkipped: false,
+      }
     }
   };
 
@@ -41,7 +48,16 @@ export class MonthlyChart implements OnInit {
       this.barChartData = {
         labels: d.monthly.months,
         datasets: [
-          { data: d.monthly.values, label: 'Rendimiento Mensual' }
+          { 
+            data: d.monthly.values, 
+            label: 'Rendimiento Mensual',
+            // ← SOLO colores sólidos (sin gradiente)
+            backgroundColor: [
+              '#667eea', '#f5576c', '#4facfe', 
+              '#43e97b', '#764ba2', '#f5576c'
+            ],
+            borderWidth: 0  // ← SIN BORDE
+          }
         ]
       };
     });

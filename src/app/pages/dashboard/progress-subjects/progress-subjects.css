@@ -80,24 +80,35 @@ Clases Bootstrap: card, card-header, card-body, progress, progress-bar, d-flex, 
 }
 
 .progress-percent {
-  color: #667eea;
+  color: #2c3e50;
   font-size: 0.9rem;
   font-weight: 600;
 }
 
 .progress {
-  height: 8px;
+  height: 10px;
   background-color: #e9ecef;
   border-radius: 4px;
   overflow: hidden;
 }
 
 .progress-bar {
-  background: linear-gradient(135deg, #667eea, #764ba2);
   border-radius: 4px;
   transition: width 1s ease;
 }
 
+/* Colores diferentes para cada barra de progreso */
+.subject-item:nth-child(1) .progress-bar {
+  background: linear-gradient(135deg, #667eea, #764ba2); 
+}
+
+.subject-item:nth-child(2) .progress-bar {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.subject-item:nth-child(3) .progress-bar {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
 /* Responsive */
 @media (max-width: 768px) {
   .subject-header {

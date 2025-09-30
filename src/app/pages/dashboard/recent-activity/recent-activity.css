@@ -39,7 +39,9 @@ Clases Bootstrap: card, card-header, card-body, badge
 .activity-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;  /* ← Reducido de 1rem */
+  max-height: 350px;  /* ← AGREGAR: Altura fija */
+  overflow-y: auto;   /* ← AGREGAR: Scroll interno */
 }
 
 .activity-item {
@@ -47,10 +49,11 @@ Clases Bootstrap: card, card-header, card-body, badge
   justify-content: between;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.75rem;  /* ← Reducido de 1rem */
   background: #f8f9fa;
   border-radius: 8px;
   transition: background-color 0.2s ease;
+  flex-shrink: 0;  /* ← AGREGAR: No se comprime */
 }
 
 .activity-item:hover {
@@ -95,13 +98,25 @@ Clases Bootstrap: card, card-header, card-body, badge
   padding: 0.25rem 0.5rem;
 }
 
+/* Colores personalizados para badges */
 .badge.bg-success {
   background: linear-gradient(135deg, #28a745, #20c997) !important;
 }
 
 .badge.bg-warning {
   background: linear-gradient(135deg, #ffc107, #fd7e14) !important;
-  color: #000 !important;
+}
+
+.badge.bg-danger {
+  background: linear-gradient(135deg, #dc3545, #e83e8c) !important;
+}
+
+.badge.bg-info {
+  background: linear-gradient(135deg, #17a2b8, #6f42c1) !important;
+}
+
+.badge.bg-primary {
+  background: linear-gradient(135deg, #007bff, #6610f2) !important;
 }
 
 /* Responsive */
@@ -122,3 +137,4 @@ Clases Bootstrap: card, card-header, card-body, badge
     padding: 0.75rem 1rem;
   }
 }
+

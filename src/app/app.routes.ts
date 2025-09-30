@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/auth/login/login';
 import { PublicLayout } from './layouts/public-layout/public-layout';
 import { PrivateLayout } from './layouts/private-layout/private-layout';
 import { DashboardShell } from './pages/dashboard/dashboard-shell/dashboard-shell';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {
     path: '',
     component: PrivateLayout,
+    canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardShell },
     ]
